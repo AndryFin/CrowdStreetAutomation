@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://test.crowdstreet.com",
+  "experimentalFetchPolyfill": true,
+  "responseTimeout": 1000,
+  "chromeWebSecurity": false
+}
