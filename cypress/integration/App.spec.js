@@ -1,11 +1,12 @@
 
 describe("Account registration", () => {
   
-   it("Click Crate An Account", () => {
+   it("Creating an Account Test", () => {
 	cy.visit("/");
 	cy.contains("Create An Account").click({ force: true });
-   });
-   it("Input personal data", () => {
+	   
+        cy.log('Entering personal data');
+	   
 	cy.contains("Email").next().type(`${Cypress._.random(0, 1e6)}@gmail.com`); 
 	cy.contains("First Name").next().type("Andrew");
 	cy.contains("Last Name").next().type("Flowers");
@@ -20,19 +21,20 @@ describe("Account registration", () => {
 	cy.get('*[data-react-toolbox="radio"]').next().within(() => {
 		cy.contains("Yes").click();
 	});
-   });
-   it("Check checkboxes", () => {
+ 
+	cy.log('Checking Agree to the terms checkboxes');
+	   
 	cy.contains("I agree to the Terms of Service.").prev().click();
 	cy.contains("I understand that investment opportunities posted on this portal are speculative").prev().click();
-   });
-   it("Click Captcha", () => {
+	   
+	cy.log('Click Captcha and Sign Up button');   
+  
 	cy.clickRecaptcha();   //this function is defined in commands.js file. 
 	                       //Also for this function to work we need to set {chromeWebSecurity=false} in cypress.json
-   });
-   it("Click Sign up", () => {
 	cy.contains("Sign Up").click();
-   });
-   it("Veryfying that account was opened", () => {
+	   
+	cy.log('Asserting there is "Congrats" popup window with new user firsname');   
+  
 	cy.contains("Congrats, Andrew!").should('be.visible');
    });   
 });
