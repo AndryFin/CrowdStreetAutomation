@@ -5,7 +5,7 @@ describe("Account registration", () => {
 	cy.visit("/");
 	cy.contains("Create An Account").click({ force: true });
 	   
-        cy.log('Entering personal data');
+    cy.log('Entering personal data');
 	   
 	cy.contains("Email").next().type(`${Cypress._.random(0, 1e6)}@gmail.com`); 
 	cy.contains("First Name").next().type("Andrew");
@@ -22,7 +22,7 @@ describe("Account registration", () => {
 		cy.contains("Yes").click();
 	});
  
-	cy.log('Checking Agree to the terms checkboxes');
+	cy.log('Checking Agree to the Terms checkboxes');
 	   
 	cy.contains("I agree to the Terms of Service.").prev().click();
 	cy.contains("I understand that investment opportunities posted on this portal are speculative").prev().click();
@@ -33,7 +33,7 @@ describe("Account registration", () => {
 	                       //Also for this function to work we need to set {chromeWebSecurity=false} in cypress.json
 	cy.contains("Sign Up").click();
 	   
-	cy.log('Asserting there is "Congrats" popup window with new user firsname');   
+	cy.log('Asserting there is "Congrats" popup window with new user first name');   
   
 	cy.contains("Congrats, Andrew!").should('be.visible');
    });   
